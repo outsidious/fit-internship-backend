@@ -77,47 +77,20 @@ values (2,
 
 insert into users (id, email, password, fio, "createdAt", "updatedAt")
 values (3,
-        'user1AndAdmin3@mail.ru',
-        '$2a$05$2W1hVe3V1gaDHLxtlGGsYuazbNaorgjeA0wF4v6QUuTp6y2YhLGtq',
-        'fio user 1',
-        '2005-01-01',
-        '2005-01-01');
-
-
-insert into users (id, email, password, fio, "createdAt", "updatedAt")
-values (4,
-        'user2@mail.ru',
+        'user1@mail.ru',
         '$2a$05$nzbY1qRegIUxeRKqYRAH2OgtNKA02idVnpo5hO7TVAA4a0slW5GCC',
-        'fio user 2',
+        'fio user 1',
         '2006-01-01',
         '2006-01-01');
 
 
 insert into users (id, email, password, fio, "createdAt", "updatedAt")
-values (5,
-        'user3@mail.ru',
+values (4,
+        'user2@mail.ru',
         '$2a$05$HLaA10borjRT8RxChzV/U.yDzGE0tSI34v4Elx2EgYq8RyzOzC6Hy',
-        'fio user 3',
+        'fio user 2',
         '2007-01-01',
         '2007-01-01');
-
-
-insert into users (id, email, password, fio, "createdAt", "updatedAt")
-values (6,
-        'user4@mail.ru',
-        '$2a$05$p4nAugzPKITOXly7ue.8qujUr7A9B4VaZUG/p54gaBb//z9Rjln5i',
-        'fio user 4',
-        '2008-01-01',
-        '2008-01-01');
-
-
-insert into users (id, email, password, fio, "createdAt", "updatedAt")
-values (7,
-        'user5@mail.ru',
-        '$2a$05$p4nAugzPKITOXly7ue.8qujUr7A9B4VaZUG/p54gaBb//z9Rjln5i',
-        'fio user 5',
-        '2009-01-01',
-        '2009-01-01');
 
 
 CREATE TABLE IF NOT EXISTS public.meetup
@@ -202,7 +175,7 @@ values (4,
         'will happen',
         'reason to come',
         '2022-10-10',
-        5,
+        4,
         '2006-01-01',
         '2006-01-01');
 
@@ -217,7 +190,7 @@ values (5,
         'will happen',
         'reason to come',
         '2022-09-09',
-        6,
+        3,
         '2008-01-01',
         '2008-01-01');
 
@@ -232,7 +205,7 @@ values (6,
         'will happen',
         'reason to come',
         '2022-09-10',
-        6,
+        1,
         '2009-02-01',
         '2009-02-01');
 
@@ -297,55 +270,7 @@ insert into "user-role" (id,
                          "createdAt",
                          "updatedAt")
 values (4,
-        3,
-        1,
-        '2003-01-01',
-        '2003-01-01');
-
-
-insert into "user-role" (id,
-                         "userId",
-                         "roleId",
-                         "createdAt",
-                         "updatedAt")
-values (5,
         4,
-        2,
-        '2003-01-01',
-        '2003-01-01');
-
-
-insert into "user-role" (id,
-                         "userId",
-                         "roleId",
-                         "createdAt",
-                         "updatedAt")
-values (6,
-        5,
-        2,
-        '2003-01-01',
-        '2003-01-01');
-
-
-insert into "user-role" (id,
-                         "userId",
-                         "roleId",
-                         "createdAt",
-                         "updatedAt")
-values (7,
-        6,
-        2,
-        '2003-01-01',
-        '2003-01-01');
-
-
-insert into "user-role" (id,
-                         "userId",
-                         "roleId",
-                         "createdAt",
-                         "updatedAt")
-values (8,
-        7,
         2,
         '2003-01-01',
         '2003-01-01');
@@ -451,7 +376,7 @@ insert into "user-meetup" (id,
                            "createdAt",
                            "updatedAt")
 values (7,
-        5,
+        1,
         1,
         '2003-01-01',
         '2003-01-01');
@@ -463,7 +388,7 @@ insert into "user-meetup" (id,
                            "createdAt",
                            "updatedAt")
 values (8,
-        6,
+        1,
         2,
         '2003-01-01',
         '2003-01-01');
@@ -475,7 +400,7 @@ insert into "user-meetup" (id,
                            "createdAt",
                            "updatedAt")
 values (9,
-        6,
+        1,
         5,
         '2003-01-01',
         '2003-01-01');
@@ -487,7 +412,7 @@ insert into "user-meetup" (id,
                            "createdAt",
                            "updatedAt")
 values (10,
-        6,
+        2,
         1,
         '2003-01-01',
         '2003-01-01');
