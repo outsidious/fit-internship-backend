@@ -26,15 +26,12 @@ export class User extends Model<User, UserCreateAttrs>{
     @Column({type: DataType.STRING, allowNull: false})
     fio: string
 
-    @ApiProperty({ type: () => [Role], description: 'Список ролей, принадлежащих пользователю'})
     @BelongsToMany(() => Role, () => UserRole)
     roles: Role[]
 
-    @ApiProperty({ type: () => [Meetup], description: 'Митапы, созданные пользователем.'})
     @HasMany(() => Meetup)
     meetupsCteaterByUser: Meetup[];
 
-    @ApiProperty({ type: () => [Meetup], description: 'Митапы, на которые подписан пользователь.'})
     @BelongsToMany(() => Meetup, () => UserMeetup)
     meetups: Meetup[]
 }
