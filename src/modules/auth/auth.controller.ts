@@ -26,7 +26,7 @@ export class AuthController {
     @ApiResponse({status: 200})
     @ApiResponse({status: 400})
     @UsePipes(ValidationPipe)
-    @Post('/registration')
+    @Get('/registration')
     registration(@Body() userDto: CreatedUserDto){
         return this.authService.registration(userDto)
     }
