@@ -90,9 +90,11 @@ export class Meetup extends Model<Meetup, MeetupCreateAttrs> {
   @ForeignKey(() => User)
   createdBy: number;
 
+  @ApiProperty({ type: () => User, description: 'Пользователь, создавший митап'})
   @BelongsTo(() => User)
   owner: User;
 
+  @ApiProperty({ type: () => [User], description: 'Пользователи, подписанные на митап'})
   @BelongsToMany(() => User, () => UserMeetup)
   users: User[];
 }

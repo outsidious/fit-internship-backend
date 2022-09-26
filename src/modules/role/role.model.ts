@@ -17,6 +17,7 @@ export class Role extends Model<Role, UserCreateAttrs>{
     @Column({type: DataType.STRING, unique: true, allowNull: false})
     name: string
 
+    @ApiProperty({ type: () => [Role], description: 'Список ролей, принадлежащих пользователю'})
     @BelongsToMany(() => Role, () => UserRole)
     users: Role[]
 }
