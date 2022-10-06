@@ -41,8 +41,6 @@ export class UserController {
         description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
         required: true
     })
-    @Roles(RoleEnum.ADMIN)
-    @UseGuards(RolesGuard)
     @Get()
     getAll(){
         return this.usersService.getAllUsers();
