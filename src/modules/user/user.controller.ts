@@ -16,23 +16,23 @@ export class UserController {
         private usersService: UserService,
     ){}
 
-    @ApiOperation({summary: 'Создание пользователя'})
-    @ApiResponse({status: 200, type: User})
-    @ApiHeader({
-        name: 'Authorization',
-        description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
-        required: true
-    })
-    @Roles(RoleEnum.ADMIN)
-    @UseGuards(RolesGuard)
-    @Post()
-    @UsePipes(ValidationPipe)
-    @Roles(RoleEnum.ADMIN)
-    @UseGuards(RolesGuard)
-    create(@Body() dto: CreatedUserDto){
-        console.log(dto)
-        return this.usersService.createUser(dto)
-    }
+    // @ApiOperation({summary: 'Создание пользователя'})
+    // @ApiResponse({status: 200, type: User})
+    // @ApiHeader({
+    //     name: 'Authorization',
+    //     description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
+    //     required: true
+    // })
+    // @Roles(RoleEnum.ADMIN)
+    // @UseGuards(RolesGuard)
+    // @Post()
+    // @UsePipes(ValidationPipe)
+    // @Roles(RoleEnum.ADMIN)
+    // @UseGuards(RolesGuard)
+    // create(@Body() dto: CreatedUserDto){
+    //     console.log(dto)
+    //     return this.usersService.createUser(dto)
+    // }
 
     @ApiOperation({summary: 'Получение всех пользователей'})
     @ApiResponse({status: 200, type: [User]})
@@ -41,6 +41,8 @@ export class UserController {
         description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
         required: true
     })
+    // @Roles(RoleEnum.ADMIN)
+    // @UseGuards(RolesGuard)
     @Get()
     getAll(){
         return this.usersService.getAllUsers();

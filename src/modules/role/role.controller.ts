@@ -36,8 +36,8 @@ export class RoleController {
         description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
         required: true
     })
-    @Roles(RoleEnum.ADMIN)
-    @UseGuards(RolesGuard)
+    // @Roles(RoleEnum.ADMIN)
+    // @UseGuards(RolesGuard)
     @Get()
     getAll(): Promise<Role[]>{
         return this.roleService.getAll();
