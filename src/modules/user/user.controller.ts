@@ -70,12 +70,12 @@ export class UserController {
     //     required: true
     // })
     // @ApiResponse({status: 200, type: UpdateRoleDto})
-    @Roles(RoleEnum.ADMIN)
-    @UseGuards(RolesGuard)
-    @Post('/role')
-    updateRoles(@Body() dto: UpdateRoleDto){
-        return this.usersService.updateRoles(dto);
-    }
+    // @Roles(RoleEnum.ADMIN)
+    // @UseGuards(RolesGuard)
+    // @Post('/role')
+    // updateRoles(@Body() dto: UpdateRoleDto){
+    //     return this.usersService.updateRoles(dto);
+    // }
 
     @ApiOperation({summary: 'Обновление пользователя'})
     @ApiHeader({
