@@ -7,6 +7,8 @@ import { AddRoleDto } from './dto/add-role.dto';
 import { CreatedUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 import * as bcrypt from 'bcryptjs';
+import { UpdateRoleDto } from './dto/update-role-dto';
+import { Role } from '../role/role.model';
 
 @Injectable()
 export class UserService {
@@ -51,6 +53,30 @@ export class UserService {
                 await currentUser.$add('roles', [currentRole.id]);
                 return dto;
             }
+            throw new HttpException("Пользователь или роль не найдены", HttpStatus.NOT_FOUND);
+        } catch (error) {
+            throw new HttpException({message: error.message}, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    async updateRoles(dto: UpdateRoleDto){
+        try{
+            const currentUser = await this.userRepository.findByPk(dto.userId);
+            const currentRoles: Array<Role> = [];
+
+            console.log(dto.names)
+
+            for (const name of dto.names) {
+                const role = await this.roleService.getRoleByName(name);
+                currentRoles.push(role);
+            }
+
+            if (currentUser && currentRoles) {
+                console.log(currentUser)
+                await currentUser.$set('roles', currentRoles.map(role => role.id));
+                return dto;
+            }
+
             throw new HttpException("Пользователь или роль не найдены", HttpStatus.NOT_FOUND);
         } catch (error) {
             throw new HttpException({message: error.message}, HttpStatus.BAD_REQUEST);

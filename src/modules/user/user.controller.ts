@@ -6,6 +6,7 @@ import { ValidationPipe } from 'src/shared/pipes/validation.pipe';
 import { RoleEnum } from 'src/shared/types/enum/role.enum';
 import { AddRoleDto } from './dto/add-role.dto';
 import { CreatedUserDto } from './dto/create-user.dto';
+import { UpdateRoleDto } from './dto/update-role-dto';
 import { User } from './user.model';
 import { UserService } from './user.service';
 
@@ -48,7 +49,7 @@ export class UserController {
         return this.usersService.getAllUsers();
     }
 
-    @ApiOperation({summary: 'Выдача ролей'})
+    @ApiOperation({summary: 'Добавление роли'})
     @ApiHeader({
         name: 'Authorization',
         description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
@@ -60,6 +61,20 @@ export class UserController {
     @Put('/role')
     addRole(@Body() dto: AddRoleDto){
         return this.usersService.addRole(dto);
+    }
+
+    @ApiOperation({summary: 'Выдача ролей'})
+    @ApiHeader({
+        name: 'Authorization',
+        description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
+        required: true
+    })
+    @ApiResponse({status: 200, type: User})
+    @Roles(RoleEnum.ADMIN)
+    @UseGuards(RolesGuard)
+    @Post('/role')
+    updateRoles(@Body() dto: UpdateRoleDto){
+        return this.usersService.updateRoles(dto);
     }
 
     @ApiOperation({summary: 'Обновление пользователя'})
