@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { RoleEnum } from "src/shared/types/enum/role.enum";
 
-export class UpdateRoleDto {
+export class UpdateUserRoleDto {
     @ApiProperty({example: [RoleEnum.ADMIN, RoleEnum.USER], description: 'Массив ролей'})
     readonly names: string[];
 

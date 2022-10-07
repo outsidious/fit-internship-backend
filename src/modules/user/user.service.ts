@@ -7,7 +7,7 @@ import { AddRoleDto } from './dto/add-role.dto';
 import { CreatedUserDto } from './dto/create-user.dto';
 import { User } from './user.model';
 import * as bcrypt from 'bcryptjs';
-import { UpdateRoleDto } from './dto/update-role-dto';
+import { UpdateUserRoleDto } from './dto/update-role-dto';
 import { Role } from '../role/role.model';
 
 @Injectable()
@@ -59,7 +59,7 @@ export class UserService {
         }
     }
 
-    async updateRoles(dto: UpdateRoleDto){
+    async updateRoles(dto: UpdateUserRoleDto){
         try{
             const currentUser = await this.userRepository.findByPk(dto.userId);
             const currentRoles: Array<Role> = [];
