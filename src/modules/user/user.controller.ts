@@ -69,7 +69,7 @@ export class UserController {
         description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
         required: true
     })
-    @ApiResponse({status: 200, type: User})
+    @ApiResponse({status: 200, type: UpdateRoleDto})
     @Roles(RoleEnum.ADMIN)
     @UseGuards(RolesGuard)
     @Post('/role')
