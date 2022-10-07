@@ -63,13 +63,13 @@ export class UserController {
         return this.usersService.addRole(dto);
     }
 
-    @ApiOperation({summary: 'Выдача ролей'})
-    @ApiHeader({
-        name: 'Authorization',
-        description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
-        required: true
-    })
-    @ApiResponse({status: 200, type: UpdateRoleDto})
+    // @ApiOperation({summary: 'Выдача ролей'})
+    // @ApiHeader({
+    //     name: 'Authorization',
+    //     description: `Токен авторизованного пользователя. Роут доступен для роли ${RoleEnum.ADMIN}`,
+    //     required: true
+    // })
+    // @ApiResponse({status: 200, type: UpdateRoleDto})
     @Roles(RoleEnum.ADMIN)
     @UseGuards(RolesGuard)
     @Post('/role')
