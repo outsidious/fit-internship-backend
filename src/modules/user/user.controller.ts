@@ -56,7 +56,7 @@ export class UserController {
         required: true
     })
     @ApiResponse({status: 200, type: AddRoleDto})
-    @Roles(RoleEnum.ADMIN)
+    @Roles(RoleEnum.ADMIN, RoleEnum.USER)
     @UseGuards(RolesGuard)
     @Put('/role')
     addRole(@Body() dto: AddRoleDto){
@@ -70,7 +70,7 @@ export class UserController {
         required: true
     })
     @ApiResponse({status: 200, type: UpdateUserRoleDto})
-    @Roles(RoleEnum.ADMIN)
+    @Roles(RoleEnum.ADMIN, RoleEnum.USER)
     @UseGuards(RolesGuard)
     @Post('/role')
     updateRoles(@Body() dto: UpdateUserRoleDto){
